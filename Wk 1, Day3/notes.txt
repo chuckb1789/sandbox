@@ -1,0 +1,34 @@
+Responsive Web Design
+
+Our website should respond to the user's device; changing the layout to accommodate small screens, different input methods, etc.
+
+  Keyboard vs Touchscreen
+  network speed, and data limits
+
+
+HOW TO ACCOMMODATE:
+  Outdated Practice: m.mysite.com 'm' signifies mobile.
+    Problems: sites incorrectly guess what device you're on.
+              redirected to different site ask for specific get home page mobile
+              having 2 sites doubles development effort, doubles chances for bugs.
+
+  Good Practices:
+      when building a responsive site, we're mostly concerned with the width of the user's browser.
+                Desktop-first, graceful degradation
+                Mobile-first, progressive enhancement (preferred method in 2016)
+
+  Relative Units:
+    em: the size of a capital M in the current font. Always relative to the immediate parent's font size.
+
+    rem: always relative to the font-size on the HTML tag.
+
+Bootstrap:
+  a CSS framework made by Twitter.
+  main benefit is Grid System...
+
+  GRID SYSTEM:
+    Device sizes: XS, SM, MD, LG
+    12 columns make up the grid
+    (a column based layout)
+
+  >Hamburger Navigation Bar (three lines stacked)

@@ -1,0 +1,50 @@
+/*We're doing mobile-first development, using progressive enhancement.*/
+
+/*This is our base style. It will apply only to the smallest screens */
+
+html {
+  font-size: 12px;
+}
+
+body {
+  background-color: dodgerblue;
+  }
+
+
+.outer {
+  height: 500px;
+  max-width: 500px;
+  background-color: green;
+  font-size: 2rem;
+}
+
+.inner{
+  height: 50vw;
+  width: 50vw;
+  /* 1 VW is 1% of the width of the viewport */
+  background-color: purple;
+  font-size: 2rem;
+
+.text {
+  font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-color: navajowhite;
+  }
+  html {
+    font-size: 14px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  body{
+    background-color: burlywood;
+  }
+  html {
+      font-size: 14px;
+    }
+  }
+}
