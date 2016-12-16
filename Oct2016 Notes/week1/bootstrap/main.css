@@ -1,0 +1,25 @@
+/*We add create our own styles over the top of Bootstrap*/
+.centered {
+    text-align: center;
+}
+
+/*We can also override or change Bootstrap class styles*/
+.jumbotron {
+    background-color: palegreen;
+}
+
+.btn {
+    border-radius: 20px;
+}
+
+.box {
+    width: 200px;
+}
+
+.black-text {
+    color:black;
+}
+
+.grid {
+    border: 2px solid black;
+}

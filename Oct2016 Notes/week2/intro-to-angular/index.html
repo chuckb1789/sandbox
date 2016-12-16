@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app>
+
+<head>
+    <title>Angular Directives</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+</head>
+
+<body>
+    <!--let's make a header tag that changes when you click a button-->
+    <div ng-init="toggle=true; name1='josepi'; name2='kurt'">
+        <!--this is an example of using ng-click to switch a boolean variable from true to false and vice versa-->
+        <button ng-click="toggle=!toggle">Switch</button>
+        <!--here, we only show the header if toggle is true-->
+        <h1 ng-if="toggle">{{ name1 }} </h1>
+        <!--and here, only if it is false-->
+        <h1 ng-if="!toggle">{{ name2 }} </h1>
+    </div>
+
+    <!--let's make a counter-->
+    <div ng-init="theCounter=1">
+        <h1>Our Counter</h1>
+        <button ng-click="theCounter = theCounter + 1">increment</button>
+        <h3> The counter is set at {{ theCounter }}</h3>
+    </div>
+
+    <!--let's make a tip calculator - with no javascript-->
+    <div ng-init='billIsTallied=false; totalBill=0; tipAmount=0'>
+        <h1>Tip Calculator</h1>
+        <p>Bill Amount:<input type='number' ng-model='totalBill'> </p>
+        <button ng-click="billIsTallied=true; tipAmount = totalBill * 0.1">10%</button>
+        <button ng-click="billIsTallied=true; tipAmount = totalBill * 0.15">15%</button>
+        <button ng-click="billIsTallied=true; tipAmount = totalBill * 0.20">20%</button>
+        <button ng-click="billIsTallied=true; tipAmount = 0">Panda Express</button>
+
+        <p ng-if="billIsTallied">Bill: {{ totalBill | currency }}</p>
+        <p ng-if="billIsTallied">Tip: {{ tipAmount | currency}}</p>
+        <p ng-if="billIsTallied">Total: {{ totalBill + tipAmount | currency}}</p>
+    </div>
+
+    <!--let's change the style of a header based on a button click-->
+    <div ng-init="myStyle={'color': 'blue'}">
+        <button ng-click="myStyle={'color':'red'}">Make it red</button>
+        <h3 ng-style="myStyle">Hello!</h3>
+    </div>
+</body>
+
+</html>

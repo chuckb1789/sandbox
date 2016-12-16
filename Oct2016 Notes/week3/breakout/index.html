@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app='weatherApp'>
+
+<head>
+    <title>Weather</title>
+    <!--first bring in angular-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <!--next bring in all of our custom angular code-->
+    <script src='app.js'></script>
+    <script src='fact.js'></script>
+    <script src='ctl.js'></script>
+</head>
+
+<body>
+    <!--everything within this <div> has access to the controller-->
+    <div ng-controller='weatherController as wCtrl'>
+        <h1>{{wCtrl.greeting}}</h1>
+        <!--create a text box in which we can enter the name of a city to search for-->
+        <form>
+            <input type="text" placeholder="city" ng-model='wCtrl.city'>
+            <button ng-click='wCtrl.citySubmit()'>Submit</button>
+            <button ng-click='wCtrl.autoUpdate()'>AutoUpdate</button>
+        </form>
+
+        <!--after we've entered a city, this will get the weather for that location-->
+        <!--we get this data from an API call initiated from teh ng-submit function above (wCtrl.citySubmit())-->
+        <h3>{{ wCtrl.weatherData.name }}</h3>
+
+        <!--now we can use the data however we'd like-->
+        {{wCtrl.weatherData.main.temp}}
+        <br> {{ wCtrl.weatherData}}
+    </div>
+</body>
+
+</html>

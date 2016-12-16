@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Bootstrap</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+	<link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+	<h1>Bootstrappin'</h1>
+
+	<!--Jumbotron - contained-->
+	<div class="container">
+		<div class="jumbotron centered">
+			<h1>Contained Jumbotron</h1>
+			<p>home of Peter's Pickles and P Pumps</p>
+		</div>
+	</div>
+
+	<!--Jumbotron - full width-->
+	<div class="container-fluid">
+		<div class="jumbotron centered">
+			<h1>Fluid Jumbotron</h1>
+			<p>home of Peter's Pickles and P Pumps</p>
+		</div>
+	</div>
+
+<!--A well class - like a smaller jumbotron-->
+	<div class="well well-lg box">Large Well</div>
+	<div class="well well-sm box">Small Well</div>
+
+<!--Buttons - lots of buttons!-->
+	<button>Button</button>
+	<button class="btn">Boot Button</button>
+	<button class="btn btn-primary">Primary </button>
+	<button class="btn btn-success">Success </button>
+	<button class="btn btn-info">Info</button>
+	<button class="btn btn-warning">Warning</button>
+	<button class="btn btn-danger black-text">DANGER</button>
+	<button class="btn btn-link">Link</button>
+
+	<div class="container-fluid">
+		<h1>Grid 50/50</h1>
+		<div class="row centered">
+			<div class="col-md-6 grid">50%</div>
+			<div class="col-md-6 grid">50%</div>
+		</div>
+	</div>
+<!--A row of 3 small columns (out of 12) on a large screen  -->
+
+	<div class="row">
+		<div class="col-xs-4 col-md-1 grid">image2</div>
+		<div class="col-xs-4 col-md-1 grid">image2</div>
+		<div class="col-xs-4 col-md-1 grid">image2</div>
+	</div>
+    <!--On medium (md) screens show each image in 1 of 12 columns (1/12 page)-->
+	<!--On small (sm) screens, show each image in 2 of 12 columns (1/6 page)-->
+    <!--On extra small (xs) screens, show each image in 4 of 12 columns (1/3 page)-->
+    <div class="row">
+		<div class="col-xs-4 col-sm-2 col-md-1 grid">image</div>
+		<div class="col-xs-4 col-sm-2 col-md-1 grid">image</div>
+		<div class="col-xs-4 col-sm-2 col-md-1 grid">image</div>
+		<div class="col-xs-4 col-sm-2 col-md-1 grid">image</div>
+		<div class="col-xs-4 col-sm-2 col-md-1 grid">image</div>
+		<div class="col-xs-4 col-sm-2 col-md-1 grid">image</div>
+		<div class="col-xs-4 col-sm-2 col-md-1 grid">image</div>
+		<div class="col-xs-4 col-sm-2 col-md-1 grid">image</div>
+		<div class="col-xs-4 col-sm-2 col-md-1 grid">image</div>
+		<div class="col-xs-4 col-sm-2 col-md-1 grid">image</div>
+		<div class="col-xs-4 col-sm-2 col-md-1 grid">image</div>
+		<div class="col-xs-4 col-sm-2 col-md-1 grid">image</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-1 grid">.col-md-1</div>
+		<div class="col-xs-1 grid">.col-md-1</div>
+		<div class="col-xs-1 grid">.col-md-1</div>
+		<div class="col-xs-1 grid">.col-md-1</div>
+		<div class="col-xs-1 grid">.col-md-1</div>
+		<div class="col-xs-1 grid">.col-md-1</div>
+		<div class="col-xs-1 grid">.col-md-1</div>
+		<div class="col-xs-1 grid">.col-md-1</div>
+		<div class="col-xs-1 grid">.col-md-1</div>
+		<div class="col-xs-1 grid">.col-md-1</div>
+		<div class="col-xs-1 grid">.col-md-1</div>
+		<div class="col-xs-1 grid">.col-md-1</div>
+	</div>
+    <!--50% width on extra small screens, 66/33% on medium screens-->
+	<div class="row">
+		<div class="col-xs-6 col-md-8 grid">50% or 66%</div>
+		<div class="col-xs-6 col-md-4 grid">50% or 33%</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 grid">.col-md-4</div>
+		<div class="col-md-4 grid">.col-md-4</div>
+		<div class="col-md-4 grid">.col-md-4</div>
+	</div>
+    <!--put a border (grid) around the row instead of the individual column elements-->
+	<div class="row grid">
+		<div class="col-md-6">.col-md-6</div>
+		<div class="col-md-6">.col-md-6</div>
+	</div>
+</body>
+
+</html>

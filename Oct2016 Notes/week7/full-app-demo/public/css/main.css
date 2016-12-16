@@ -1,0 +1,70 @@
+body {
+    background-image: url("http://walops.com/wp-content/uploads/The-Dark-Knight-HD-Picture-Wallpaper.jpg");
+    background-repeat: repeat-y;
+    background-size: contain;
+}
+
+.jumbotron {
+    background: rgba(255, 255, 255, 0.9); 
+}
+
+.heroList {
+    list-style: none;
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.heroCard {
+    padding: 0px;
+}
+
+.deleteButton {
+    position:absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.header {
+    margin-top: 30px;
+}
+
+.heroName {
+    margin-top: 10px;
+}
+
+.powers {
+    list-style: none;
+}
+
+.weaknesses {
+    list-style: none;
+}
+
+
+
+.form-group input[type="checkbox"] {
+    display: none;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span {
+    width: 20px;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span:first-child {
+    display: none;
+}
+.form-group input[type="checkbox"] + .btn-group > label span:last-child {
+    display: inline-block;   
+}
+
+.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+    display: inline-block;
+}
+.form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+    display: none;   
+}

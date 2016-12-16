@@ -1,0 +1,103 @@
+JavaScript Workshop
+
+JS Types:
+    Primitive types:
+        -string: 'hello' or "hello"
+        -number: 276
+        -boolean: true/false
+        -undefined (defined with a value of nothing)
+        -null (not even defined)
+
+    Non-primitive types:
+        -arrays 
+        -objects   
+        -functions
+
+var name
+
+Valid variable names: must start with a letter, _, $
+
+Valid:
+    foo
+    result
+    result2
+    $$billyall
+
+Not valid:
+    1result
+    2fast2furious
+    hello-world
+
+PEMDAS 
+    Parenthesis
+    Exponents
+    Multiplication
+    Division
+    Addition
+    Subtraction
+
+Operators
+    * Multiplication
+    + Addition
+    - Subtraction
+    / Division
+    % Modulus  
+
+Comparison Operators
+    == is equal?
+    === is it strictly equal? (type is also the same)
+    < less than
+    <= less than or equals
+    > greater than
+    >= greater than or equals
+
+Logical Operators
+    ! not (negating a value)
+    != not equal
+    && and
+    || or
+
+Conditional Statements
+
+if()
+
+Truthey/Falsey
+    Any number except 0 or NaN (not a number) 
+    Any String that is not empty 
+    null and undefined are always falsey  
+    any other value is truthey
+
+
+Incrementers/Decrementers
+var i = 0
+
+i = i + 1
+i++ // shorthand for post increment (returns the value before it increments)
+++i // shorthand for pre increment (returns the value after it increments)
+
+i = i - 1
+i-- // shorthand for post decrement (returns the value before it decrements)
+--i // shorthand for pre decrement (returns the value after it decrements)
+
+i = i + 10 // long way to increment by 10 (or any number is valid)
+i+=10 // shorthand for incrementing by 10
+i+10 // give me the value of i + 10, but don't set the value to anything
+
+i *= 4
+i /= 2
+
+Loops
+
+for(initializer; conditional (termination case); incrementer) {
+    // what to do inside of the loop
+}
+
+var num = 0;
+while(num < 100) {
+    num++;
+}
+
+objects
+
+
+Collection: an array of objects

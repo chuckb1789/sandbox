@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--bring in the definition of our angular controller first thing on the html element-->
+<html ng-app="HotCoffee">
+<head>
+    <title> Routing </title>
+    <!--start by bringing in angular-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <!--then add the angular-route module-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
+
+    <!--and finally add all of our angular code - controller(s), router(s) and factory(s)-->
+    <script src="controllers/app.js"></script>
+    <script src="controllers/router.js"></script>
+    <script src="controllers/creamnsugarController.js"></script>
+    <script src="controllers/originController.js"></script>
+    
+    <!--as we discussed, these script tags could be placed later in this file, like at the end of the body,-->
+    <!--but they need to be defined in order (ng-app first, then factories, controllers and router later)-->
+    <!--loading them later in the file makes the page render faster, but will render incomplete (with {{stuff}}) until the angular controllers are loaded-->
+</head>
+<!--we set the ng-controller on the body so we can use the greeting defined in CreamNSugar-->
+<body ng-controller="CreamNSugar as csCtrl">
+    <!-- header title -->
+    <h1>{{csCtrl.greeting}}</h1>
+
+    <!-- nav links -->
+    <nav>
+        <ul>
+            <!--note the # in front of the route paths - that's telling us to use front-end (angular) routing-->
+            <li> <a href='#/'>Home</a></li>
+            <li> <a href='#/menu'>Menu</a></li>
+            <!--we added a parameter (1) to this path.  See how it is named in router.js and how it is used in originController.js-->
+            <li> <a href='#/origin/1'>Origins</a></li>
+        </ul>
+    </nav>
+    
+    <!-- ng-view will be replaced with the html tmeplate specified in the router -->
+    <ng-view>
+        <!-- our route-specific html is displayed here -->
+    </ng-view>
+
+    <!-- footer -->
+    <br/>
+    <footer>Copyright 2016</footer>
+
+</body>
+</html>

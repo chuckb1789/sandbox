@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <title>Today's Weather</title>
+        <meta charset="utf-8">
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaaepYhs80YXwU4D4_wUhdgEABKEZ_rnU">
+        </script>
+        <script src="/main.js"></script>
+    </head>
+    <body ng-app='WeatherApp'>
+        <div ng-controller="WeatherController as w" >
+            <section>
+                <h3>Debug Info</h3>
+                <ul>
+                    <li><em>{{ w.msg }}</em></li>
+                </ul>
+            </section>
+            <section>
+                <h3>Weather</h3>
+                    <table border="1" >
+                        <tr>
+                            <td>City:</td>
+                            <td>{{w.name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Lat:</td><td>{{w.real_lat}}</td>
+                        </tr>
+                        <tr>
+                            <td>Lon:</td><td>{{w.real_lon}}</td>
+                        </tr>
+                        <tr>
+                            <td>Temp:</td><td>{{w.temp | number:0}} F°</td>
+                        </tr>
+                        <tr>
+                            <td>Pressure:</td><td>{{w.pres | number:2}} in. Hg</td>
+                        </tr>
+                    </table>
+            </section>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+.map {
+    width: 95vw;
+    height: 95vh;
+}
+
+.minerDude {
+    width: 3vw;
+    height: 3vh;
+    position: absolute;
+}
+

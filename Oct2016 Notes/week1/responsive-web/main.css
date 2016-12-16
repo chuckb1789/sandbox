@@ -1,0 +1,49 @@
+body {
+    background-color:#fff; /* same as #ffffff */
+}
+
+/* group of boxes*/
+.boxes {
+    float: left;
+}
+
+/* individual boxes */
+.box {
+    background-color:white;
+    height:100px;
+    width:100px;
+    /*outline is like border, but it is INSIDE the content box instead of adding space outside*/
+    outline: 2px solid black;
+    /*this allows each box to share the same line*/
+    display: inline-block;
+}
+
+/* mobile phone */
+@media (min-width:768px) {
+    body {
+        background-color: rgb(44,66,99); /* rgba also adds a fourth argument, opacity, which is 0-1.0 */
+    }
+    .boxes {
+        width: 100%
+    }
+}
+
+/* tablet */
+@media (min-width: 1024px) {
+    body {
+        background-color: #38786f;
+    }
+    .boxes {
+        width: 50%
+    }
+}
+
+/* laptop/desktop */
+@media (min-width: 2048px) {
+    body {
+        background-color: darkseagreen;
+    }
+    .boxes {
+        width: 25%
+    }
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="GoldRush">
+    <head>
+        <title>Gold Rush 3D</title> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="module.js"></script>
+        <script src="controller.js"></script>
+        <link rel="stylesheet" href="main.css"> 
+    </head>
+    <body ng-controller="GoldController as gCtrl">
+        {{gCtrl.greeting}}
+
+        <img src="topo-co.jpg" class="map" ng-click="gCtrl.addMarker($event)">
+
+        <img class="minerDude" ng-repeat="marker in gCtrl.markers" src="miner.gif"
+        style="left:{{marker.x-15}}px; top:{{marker.y-15}}px;" 
+        ng-click="gCtrl.hideMarker($index)"
+        ng-if="!marker.hide">
+
+        <button type="button" ng-click="gCtrl.showMarkers()">Unhide all markers</button>
+    </body>               
+</html>

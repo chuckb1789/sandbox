@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="MVC">  
+    <head>
+        <title>Express MVC</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="/js/controller.js"></script>
+    </head>
+    <body ng-controller="MVCController as mCtrl">
+        {{mCtrl.greeting}}
+
+        <!-- get song form - can get all songs or a single song by title -->
+        <form ng-submit="mCtrl.getSong()">
+            <input type="text" placeholder="Search title" ng-model="mCtrl.searchSong">
+            <input type="submit">
+        </form>
+
+        <!-- create song form -->
+        <form ng-submit="mCtrl.createSong()">
+            <input type="text" placeholder="Title" ng-model="mCtrl.song.title">
+            <input type="text" placeholder="Album" ng-model="mCtrl.song.album">
+            <input type="text" placeholder="Artist" ng-model="mCtrl.song.artist">
+            <input type="text" placeholder="Track Number" ng-model="mCtrl.song.trackNum">
+            <input type="text" placeholder="Stars" ng-model="mCtrl.song.stars">
+            <input ng-repeat="groupie in mCtrl.song.groupies track by $index" type="text" placeholder="Groupies" ng-model="mCtrl.song.groupies[$index]">
+            <button type="button" ng-click="mCtrl.addGroupie()">Add Groupie</button>
+            <input type="submit">
+        </form>
+
+        <!-- display the song data -->
+        <ul>
+            <!-- display all song properties for all songs in the songData array -->
+            <li ng-repeat="song in mCtrl.songData">
+                Title: {{song.title}} <br>
+                Album: {{song.album}} <br>
+                Artist: {{song.artist}} <br>
+                Track Number: {{song.trackNum}} <br>
+                Stars: {{song.stars}} <br>
+                Groupies:
+                <ul>
+                    <!-- list out each groupie in the groupies array -->
+                    <li ng-repeat="groupie in song.groupies">
+                        {{groupie}}
+                    </li>
+                </ul>
+            </li>    
+        </ul>
+
+    </body>
+</html>

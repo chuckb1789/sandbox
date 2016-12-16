@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app='Students'>
+
+<head>
+    <title>Angular!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    <script src="./main.js"></script>
+</head>
+
+<body>
+    <div ng-controller='StudentController as sCtrl'>
+        <h1>{{ sCtrl.greeting }}</h1>
+        <!--<h2>{{ sCtrl.students }}</h2>-->
+        <form>
+            <input type="text" placeholder="Student Name" ng-model='sCtrl.name'>
+            <p>
+                <input type="text" placeholder="Student Address" ng-model='sCtrl.address'>
+            </p>
+            <p>
+                <button ng-click='sCtrl.addStudent()'>Add Student</button>
+            </p>
+        </form>
+        <ul>
+            <li ng-repeat='stu in sCtrl.students'> {{ stu.name }} who lives at {{ stu.address }} </li>
+        </ul>
+    </div>
+
+
+</body>
+
+</html>

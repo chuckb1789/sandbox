@@ -1,0 +1,32 @@
+Bootstrap
+A css styling framework
+
+
+http://getbootstrap.com
+- look at the CSS section
+
+CDN JS (Content Delivery Network Javascript)
+cdnjs.com
+search for the content library you want (ie. twitter-bootstrap)
+
+
+Setup your repositories/directories
+- create a directory which will contain all your work, notes, etc.
+    - mkdir ~/projects  (or whatever you want to call it)
+    - cd ~/projects
+- Get the lecture notes repository
+    - git clone http://github.com/RefactorU/Oct2016DemoCode
+    - after this, just do 'git pull origin master' to update
+- Get the exercise starters and disconnect it from github
+    - git clone http://github.com/RefactorU/exercise-starters-web
+    - rm -rf ~/projects/exerise-starters-web/.git
+- Create a new repository for each exercise
+    - cd ~/projects/exercise-starters-web/week1/css-modularity
+    - (create a repo on github)
+    - git clone http://github.com/MYID/css-modularity
+    - after this, do your own 'git add -A', 'git commit ...', 'git push origin master', etc
+- Create a sandbox repository to do random stuff in
+    - (create a repo on github)
+    - cd ~/projects/sandbox
+    - git clone http://github.com/RefactorU/sandbox
+

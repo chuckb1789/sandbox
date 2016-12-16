@@ -1,0 +1,22 @@
+object oriented programming
+
+please follow along
+
+NOT using html, css
+NOT using angular,
+NOT using express, mongo
+just using javascript
+used BOTH on the front-end and back-end
+
+Object Oriented Programming (OOP) is a style of programming that relies on creating objects in a structured manner, using CLASSES.
+
+CLASSES let us define a structure for objects, and then INSTANTIATE many objects from that class.
+The CLASS defines a list of PROPERTIES that each object of your class must have.
+PROPERTIES that are functions can be referred to more specifically as METHODS
+
+INSTANCES of our CLASS are OBJECTS
+
+javascript does not have a built-in notion of CLASSES. What we do have are prototypes. 
+
+
+In javascript, instead of a CLASS keyword, we use constructor functions. 

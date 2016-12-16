@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="App">
+
+<head>
+    <title>Angular</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+
+    <script src="module.js"></script>
+    <script src="controller.js"></script>
+    <script src="factory.js"></script>
+    <script src="formcontroller.js"></script>
+    
+
+
+</head>
+
+<body>
+    <div ng-controller="GameController as gCtrl">
+
+        <ul>
+            <!-- gameObjectInGameList => gCtrl.listOfGames[i] -->
+            <li ng-repeat="gameObjectInGameList in gCtrl.listOfGames">{{ gameObjectInGameList.name }}</li>
+        </ul>
+
+    </div>
+
+    <hr>
+    <hr>
+
+    <div ng-controller="FormController as fCtrl">
+        <!--<ul>
+            
+            <li ng-repeat="formGame in fCtrl.listOfGames">{{ formGame.name }}</li>
+        </ul>-->
+
+        <form ng-submit="fCtrl.addGame()">
+            <input ng-model="fCtrl.newGame.name" placeholder="Game Name" type="text">
+            <input ng-model="fCtrl.newGame.genre" placeholder="Game Genre" type="text">
+
+            <input type="submit">
+        </form>
+
+    </div>
+
+</body>
+
+</html>

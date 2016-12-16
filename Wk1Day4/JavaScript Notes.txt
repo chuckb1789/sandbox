@@ -130,3 +130,142 @@ JavaScript Syntax
         0 is falsey. Any non-zero number is TRUTHY
         NaN - not a number is 'falsey'
         Null and undefined are 'falsey'
+
+Javascript Structures: Arrays, Objects, & Loops
+
+  Array:
+    list of items,
+      Ex.
+        var days = ['Sunday', 'Monday', 'Tuesday'] //an array of the same type of element homogenous
+        var stuff = [1, 'string', true, days [0]]; //an array with different types of elements - heterogenous
+
+        days.push () - adds an element to the end of an array.
+        days.pop () -
+        days.shift
+
+        var index=0;
+        index++ //increment
+        index+= 2; //increment by 2
+        index-= 1; //the same as index-- or index = index - 1
+
+  Loop:
+    FOR LOOP:
+    for (var i = 0;      //initializer statement
+     i < days.length;   //conditional termination statement
+     i++) {             //incrementor
+            console.log(days [i]);
+            }
+
+      Typically seen as:
+          for (var i = 0; i< days.length; i++) {
+            if ( i % 2 == 0 ) {console.log (days [i])}     //only log even numbered days.
+
+    var nums = [1,2,3,4,5,6,7,8,9]
+    var i=0;
+    while (i<5) {
+      console.log(days [i]);
+      i++;
+    }
+
+    while (nums--) {
+      console.log(nums)
+    }
+
+  Objects:
+
+    var movieName = 'Rogue 1';
+    var movieLength = 93;
+    var movieGenre = 'SciFi'
+
+         better
+
+    var rogue1 = {
+      name : 'Rogue 1',
+      length : 93,
+      genre : 'SciFi'
+    }
+
+    var thor = {
+    name : 'Thor',
+    length : 124,
+    genre : 'SciFi'
+    }
+                                    //Don't need to designate a var for Jaws because it is being included int eh var movies, it doesn't have a name but is part of the array.
+    var movies = [rogue1, thor, { name: 'Jaws', length:44, genre: 'Thriller'}]
+
+Ways of Accessing the Properties of an Array:
+    thor.name = 'My Thor';
+    movies[2].name = 'More Jaws';
+    movies[2].('genre');
+    thor['genre']
+
+    movies.push({name: 'Other Movie Name', Length:23, star: 'Justin Beiber'})
+
+    for (var i=0, i < movies.length;i++ ) {
+      console.log(movies[i]);
+    }
+
+
+
+EXAMPLE:
+  var fiat = {
+      wheelsFlat : true,
+      make : 'Fiat' ,
+      model: 'Spider' ,
+      year : 1970
+      stereo : 'awesome'
+  }
+
+  var cruzer =
+
+JS - FUNCTIONS:
+    4 components to a function:
+        reserved word 'function'
+        name (optional)
+        set of parameters/arguments
+        set of statements - the body of the function
+EC5 Syntax
+
+    //Function declaring
+    //this function can be called/invoked anywhere in the file since its declared at complie time.
+    function calculateArea (length, height) { //inputs are called parameters
+      var area = length * height;
+      return area;                            //return will give a value back after invoking the function.
+    }
+
+  Anonymous Function
+    //define an anonymous function and assign it to a variable.
+    // you can only invoke an Anonymous Function after it's declaration.
+
+Example:
+    var calculateArea = function (length, height) {
+      var area = length * height;
+      return area;
+    }
+
+EC6 Syntax:
+  calculate(length, height) => {
+    var area = lenth * height;
+    return area;
+  }
+
+Invoking a function:
+//calling, invoking or executing a function
+
+Example:
+  var squareArea = calculate(2,4.5)
+  saveToDatabase(mySpecialThing);  //sometimes we want the function to do something and don't care about a return value
+
+A Function Call vs A Function Convention
+
+
+A function with an object:
+
+  var person = {
+      alive : true,
+      eat : function (food) {
+          console.log("munch, munch, munch on", food);
+      }
+  }
+
+function returns: person.eat ('steak') =  Munch, munch, munch on steak

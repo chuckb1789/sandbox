@@ -1,0 +1,70 @@
+Basic Command Line
+
+Folders (also known as directories) start at the root (/) and nest from there.
+For example, /Users/myname/Documents is a folder inside the folder /Users/myname.
+
+/Users
+    /guest
+    /myname
+        report.txt
+        /Downloads
+        /Documents
+            myDocument.txt
+
+Note that Explore (Windows) or Finder (MacOS) shows you the same folders/directories and files
+as the command line.  Create a file in the command line, and you will see it show up in Explore/Finder (and vica versa).
+
+You can use filename completion by typing part of a directory/filename and then using the tab button to complete it for you.
+Hitting tab twice will show you a list of all possible directory/filename completions.
+
+(Almost) All commands follow the format
+command [-options] [arguments]
+
+
+pwd - print working directory (show where I am in the directory structure)
+
+cd - change directory
+    cd ..       (move up a directory)
+    cd dir      (move down into the directory named 'dir')
+    cd          (move to the user's home directory)
+    cd ~        (move to the user's home directory - same as above)
+
+ls - list
+    ls -a       (list all files, including hidden (.file) files)
+    ls -l       (list files and include permission, access time, etc information)
+
+cat - catalog (show the contents of a file)
+    cat {filename}
+
+less - show the contents of a file
+    less {filename} (like 'cat' but it shows you page-by-page)
+        'f' moves you forward, 'b' moves you backward, 'q' quits the listing
+
+mv - move
+    mv {fromFile} {toFile}
+
+rm - remove
+    rm {filename}   (delete the file named 'filename')
+    rm -rf {directory}  (delete the directory named 'directoryName' AND everything that's in it)
+
+mkdir - make directory
+    mkdir {directoryName}
+
+rmdir - remove a directory
+    rmdir {directoryName}   (delete the directory named 'directoryName' - note that the directory must be empty)
+
+echo - echo/repeat the arguments to the console
+    echo {string}
+
+touch - create and/or update the last modified time of a file
+    touch {filename}
+
+sudo - super user do
+    sudo {cmd}  (BE CAREFUL! This is a very powerful command that can completely mess up your computer if you do the wrong thing.)
+                    The wrong thing?   'sudo rm -rf /'  (what would this do?)
+
+You can see more detail about commands by using the 'man' (manual) command
+    man touch          # shows the manual page for the command 'touch'
+
+You can also usually use '{command} -h' to get brief usage help.
+    touch -h            # shows the brief usage for the command 'touch'

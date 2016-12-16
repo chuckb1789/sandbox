@@ -1,0 +1,132 @@
+JavaScript Syntax
+  Statement based syntax.
+
+  Comments:
+    HTML <!----html comment--!>
+    CSS /* CSS comment */
+    JavaScript //javascript single line comment
+              /*
+              javascript block comment
+              */
+
+  Variables:
+    Declaring a variable = here is a function that will fun for X (for example)
+
+    var foo; // 'declare' a variable named foo
+    var numberofStaff = 5; // 'defining' a variable by giving it a value
+    var name = "Joe";  // variables can be of different types
+    var otherName = name // you can set a variable to another variable
+    __myVariable = 3;
+    $$variableName
+    student 1
+
+    Rules of Variables:
+      must start with a letter (upper or lowercase), underscore, or a '$'.
+      May also use underscores and numbers after the first character.
+      Variable names should not have special characters.
+      snake-case-names-are-ok
+
+
+    Variable Types (5 primitive types of variables):
+      String - the value of a string can be expressed with single quotes or double quotes
+      Number -
+      Boolean - (true or false (1 or 0))
+      null - general programming language, the variable is declared but the value is undefined.
+      undefined -
+
+    Number:
+      a number can be integer, float, exponent, long, double, etc.  (any kind of number)
+
+    Literals: (numeric values)
+      values for things that are not variables. ex. 2 // simple integer
+      3.14159 // decimal  (float, long, double)
+      1e6 // scientific notation, exponentials, etc.
+
+    String Variables:
+      'hello world'
+      "quotation for famous sayings"
+      "we don't care about special characters inside quotes."
+      'he said, "we don\'t care!"' //use a backslash to 'literal' or 'escape' a character.
+      'how do we literal a backslash?' \\my value\\' // \my value\
+      'there are also special characters like EOL (end of line)/return/carriage return/newline that is literals
+
+      There are other special characters like \t (tab) that you can Google if needed.
+
+    String Operators:
+      + // concatenation, combine two strings together
+      Ex.
+        name = 'joe'
+        lastname = 'smith'
+        fullname = name + lastname //joesmith
+        fullname = name.concat (lastname)
+
+      Binary operators operate using two variables/values.
+        Ex.
+          joe+2
+      Unary operates operate on a single variable.
+      ++
+      --
+      **
+
+      Ex.
+        index++ // this is the same as saying index = index + 1
+        index** // this is the same as saying index = index * index (extremely rare)
+
+    Binary Operators:
+      +, -, /, *, % (modulus)
+      Binary operators operate
+
+    Strings are Objects (like most evertyhing else in Javascript)
+    Ex.
+      var str = 'string'
+      str.length // 6
+      str [0] // 's'
+      str [5] // 'g'
+      str [3] // 'i'
+
+    Boolean:
+      Boolean/Comparison Operators
+        >   greater than
+        <   less than
+        >=  greater than or equal to
+        <=  less than or equal to
+        ==  is equal
+        === is literally equal or is the same exact variable (X = 1, Y = 1, X === X, Y===Y, not X===Y)
+
+*Dont use '=' alone. That is an assignment operator.
+
+    Logical Operators:
+      !   not
+      !=  not equal to
+      &&  and
+      ||  or
+   Statements:
+      Whitespace is ignored in statements.
+      Statements can optionally end with a semicolon.
+
+  Conditional Statements:
+    Ex.
+      "If I have 3 cups of coffee, I'm jazzed!"
+
+      var cups;
+      ...
+      if (cups == 3) {
+         I = 'jazzed';
+      } else if { cups == '15' {
+         I = 'wired!';
+      }
+        else {
+         I = 'asleep';
+      }
+
+      Generically:
+        if (condition) { //then
+          // do this stuff
+        }
+
+      Truthy && Falsey
+        There are some 'falsey' conditions in javascript that will resolve to false, but may not be obvious.
+
+        0 is falsey. Any non-zero number is TRUTHY
+        NaN - not a number is 'falsey'
+        Null and undefined are 'falsey'

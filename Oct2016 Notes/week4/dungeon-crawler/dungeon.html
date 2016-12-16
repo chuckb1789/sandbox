@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <h3> Welcome, {{dCtrl.Player.name}}!
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h4>{{dCtrl.currentRoom.description}} and has {{dCtrl.currentRoom.barrels ? "barrels!" : "no barrels :("}}</h4>
+
+            </div>
+
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-6">
+                        Watch out! A {{dCtrl.currentRoom.monster.name}} appeared!
+                        <br> It's wielding a {{dCtrl.currentRoom.monster.weapon}} and it peers at you with its {{dCtrl.currentRoom.monster.eyeballs}}
+                        eyes!
+                    </div>
+                    <div class="col-xs-6">
+                        Loot :
+                        <ul>
+                            <li ng-repeat="loot in dCtrl.currentRoom.loot">{{loot.name}} - {{loot.weight}}oz</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div ng-click="dCtrl.nextRoom()" class="btn btn-info">Next Room!</div>
+
+</div>

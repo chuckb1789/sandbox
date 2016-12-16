@@ -1,0 +1,18 @@
+MVC - Model View Controller
+
+Model
+    -Describes the structure and storage of data
+    -Are often described by SCHEMAS
+    -Often involves data validation and formatting
+
+View
+    -Is the presentation of data
+    -For single page apps (SPAs), handled by Angular and HTML
+    -Often implemented via server side templating (examples: pug, ejs)
+
+Controller
+    -The glue between the model and the View
+    -Responsible for the logic that pulls data from the model and organizes/passes the data to the View
+    -Used to transform what our data IS to what our user SEES
+    -Updates the model with data changes
+    -Used on both client and server

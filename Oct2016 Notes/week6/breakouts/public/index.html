@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="FullStack">                  
+    <head>
+        <title>Full stack app!</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="/js/module.js"></script>
+        <script src="/js/controller.js"></script>
+        <script src="/js/factory.js"></script>
+    </head>
+    <body ng-controller="FullStackController as fCtrl">
+        {{fCtrl.greeting}}
+
+        <form ng-submit="fCtrl.createUser()">
+            <input type="text" placeholder="Email" ng-model="fCtrl.user.email" required>
+            <input type="text" placeholder="Name" ng-model="fCtrl.user.name" required>
+            <input type="text" placeholder="Age" ng-model="fCtrl.user.age" required>
+            <input type="text" placeholder="Sex" ng-model="fCtrl.user.sex" required>
+            <input type="text" placeholder="Location" ng-model="fCtrl.user.location" required>
+            <input type="text" placeholder="Bio" ng-model="fCtrl.user.bio" required>
+            <input type="submit">
+        </form>
+    </body>
+</html>

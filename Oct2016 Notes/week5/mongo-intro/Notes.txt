@@ -1,0 +1,116 @@
+Intro to Mongo
+
+To install MongoDB on Mac, type into your terminal:
+brew install mongodb
+
+To start Mongo Daemon (to listen for incoming database connections), run:
+sudo mongod
+
+You should see some output in the terminal, and it should say at the end that it is listening for connections on port 27017
+
+If you get an error about /data/db not existing, use this to create the directories:
+sudo mkdir -p /data/db
+
+Once mongod is running, open a new terminal and connect to the mongo shell using:
+mongo
+
+You should see a prompt that looks like this ">". Now you're ready to interact with the mongo shell.
+
+
+
+
+SQL Databases:
+    -Data is stored in tabular systems
+    -Much like a spreadsheet
+    -Query-based language for accessing and storing data
+    -Examples of relational/SQL databases: MySQL, Postgres, Oracle
+
+NoSQL Databases:
+    -Developed to overcome limitations of SQL databases concerning scale and replication
+    -Structureless means there are many different styles, such as document, key-value, and graph databases
+    -Uses an API to manipulate databases
+    -Faster than SQL because of flat-file and weak associations
+
+MongoDB (from Humongous)
+    -Written in C++, very fast document oriented storage
+    -Built in support for scaling
+    -A flat-file database, meaning all data is store in a single file
+    -Documents are stored as JSON-like sets
+
+Terminology:
+    -Document: A single entry made up of one or more properties (key-value pairs). In database terms, this is referred to as a record. Think of this like a row in a spreadsheet
+    -Collection: A group of records or documents. In database terms, this is commonly referred to as a table. Think of this like a spreadsheet.
+    -Database: A group of collections. Think of this as a worksheet, made up of multiple spreadsheet tabs.
+
+Commands in mongo shell:
+To get a list of mongo methods available to you: db.help()
+To list all databases: show dbs
+To switch to a dababase: use <database_name>
+To show collections in a database: show collections
+
+You will use a lot of methods in the form of db.collectionName.someMethod()
+So, if you are interacting with a collection called contactInfo for example:
+
+Inserting a single document:
+db.contactInfo.insert({fname: 'Bob', lname: 'Johnson', phone: '303-111-1111'})
+
+Inserting multiple documents (can pass the insert method an array of documents to insert):
+db.contactInfo.insert([{ fname: 'Jethro', lname: 'Tull', phone: '303-222-2222' }, { fname: 'Eric', lname: 'Clapton', phone: 303-333-3333' }])
+
+Finding documents that match a given criteria: 
+db.contactInfo.find()
+db.contactInfo.find({}) 
+    -The object passed to the find method is the query. It can be an empty object to find all documents.
+    -Both of the above commands are functionally equivalent. If you pass nothing to find or {}, it will match all documents, because all documents are objects
+db.contactInfo.find({fname: 'Bob'}) 
+    -This will find all documents that have the property fname with a value of 'Bob'
+db.contactInfo.findOne({})
+    -This will find only one document that matches the given criteria (will return the first one it finds if there are multiple matches)
+db.contactInfo.find({}).pretty()
+    -The pretty method will print the results of the query as easier to read formatted JSON
+db.contactInfo.find({}).sort({fname:1})
+    -Sorts the collection based on the property name
+
+To update a document:
+db.contactInfo.update({fname: 'Bob'},{fname: 'Rob', lname: 'Johnson'})
+    -This will change a single document that matches the criteria to be the new document information (note that this replaces the entire document!)
+
+To update multiple documents:
+db.contactInfo.update({}, { $set: {state: 'CO'} }, { multi:true })
+    -This will add state: 'CO' to all documents
+Generically, it is: db.collectionName.update({criteria}, {update}, {options})
+
+There are multiple update operators. The most common are:
+    -$set: to set/overwrite a property
+    -$unset: to remove a property
+    -$inc: to increment a property's value
+    -$push/$pop: add or remove a value from a property that is an array
+
+To remove all documents that match the criteria:
+db.contactInfo.remove({fname: 'Bob'})
+
+To remove an entire collection:
+db.contactInfo.drop()
+    -Deletes the contactInfo collection
+
+To remove an entire database:
+db.dropDatabase()
+    -This will remove or 'drop' the currently selected database (the database currently being used)
+
+
+
+
+In Class Exercise:
+
+Create a mongo database named lingo. Create a collection called dbTerms that has documents with the properties term and definition
+
+Add the following documents:
+
+property: a name-value pair
+document: a record consisting of one or more properties
+collection: a group of documents
+database: a group of collections
+drop: to remove or erase a collection or database
+connect: to use a specific database in a database server
+
+Find the term 'drop'.

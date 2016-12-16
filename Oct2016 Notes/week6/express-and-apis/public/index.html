@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="Kanyay">  
+    <head>
+        <title>KANYAYYYY!!!</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="/js/controller.js"></script>
+    </head>
+    <body ng-controller="KanyayController as kCtrl">
+        {{kCtrl.greeting}}
+
+        <!-- create a form to get an album -->
+        <form ng-submit="kCtrl.searchAlbum()">
+            <input type="text" placeholder="Album name" ng-model="kCtrl.album">
+            <input type="submit">
+        </form>
+
+        <!-- create a form to get a track -->
+        <form ng-submit="kCtrl.searchTrack()">
+            <input type="text" placeholder="Track name" ng-model="kCtrl.track">
+            <input type="submit">
+        </form>
+
+        <!-- create a form to get the list of words and how many times he has said them -->
+        <form ng-submit="kCtrl.searchCounter()">
+            <input type="text" placeholder="Word" ng-model="kCtrl.word">
+            <input type="submit">
+        </form>
+        
+        <!-- interpolate the data from the api -->
+        {{kCtrl.data}}
+
+        <!-- display all of the words from the api -->
+        <ul>
+            <!-- filter based on what we typed in the form and order them by the count property -->
+            <li ng-repeat="wordObj in kCtrl.words | orderBy:'count':true | filter:kCtrl.word">
+                {{wordObj.word}}: {{wordObj.count}}
+            </li>
+        </ul>
+    </body>
+</html>

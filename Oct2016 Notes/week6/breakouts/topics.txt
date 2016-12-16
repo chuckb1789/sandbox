@@ -1,0 +1,6 @@
+Breakout topics:
+-Angular app (with a form: profile page) and connect to database
+    -caching in the factory
+-Overview of this
+    -Call, apply, bind
+    -OOP: constructors, prototypes

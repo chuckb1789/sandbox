@@ -1,0 +1,20 @@
+{
+  "name": "hello-world-in-color",
+  "version": "0.1.0",
+  "description": "Hello world, in a colorful way",
+  "main": "colors.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "colorfull",
+    "stuff"
+  ],
+  "author": "RefactorUs",
+  "license": "ISC",
+  "dependencies": {
+    "color": "^0.11.4",
+    "color-js": "^1.0.3",
+    "colors": "^1.1.2"
+  }
+}

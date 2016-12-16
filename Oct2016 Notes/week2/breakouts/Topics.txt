@@ -1,0 +1,8 @@
+Breakout lecture!
+
+What do you guys want to hear about?
+
+-Build an angular site from the ground up
+-When to use for loop/while loop
+    -named/anonymous function
+-Nested loops/validation

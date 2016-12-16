@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="DwarvesApp">                      
+    <head>
+        <title>Angular ng-repeat</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body ng-controller="DwarvesController as dCtrl">
+        {{dCtrl.greeting}}
+
+        <ul>
+            <li ng-repeat="dwarf in dCtrl.dwarves">
+                {{$index}}: {{dwarf}}
+            </li>
+        </ul>
+
+        <!-- use this syntax for accessing both the key and the value (works for arrays or objects)-->
+        <ul>
+            <li ng-repeat="(dwarfIndex, dwarfName) in dCtrl.dwarves">
+                {{dwarfIndex}}: {{dwarfName}}
+            </li>
+        </ul>
+
+        <!--$first is true if this is the first element in the array and false otherwise -->
+        <!--$last is true if this is the last element in the array and false otherwise -->
+        <!--$middle is true if this is a middle element (not first or last) in the array and false otherwise -->
+        <ul>
+            <li ng-repeat="dwarf in dCtrl.dwarves">
+                <span ng-show="$first">Firstly, there was {{$index}}:{{dwarf}}</span>
+                <span ng-show="$middle">Then, there was {{$index}}:{{dwarf}}</span>
+                <span ng-show="$last">Lastly, there was {{$index}}:{{dwarf}}</span>
+            </li>    
+        </ul>
+
+        <!-- use (key, value) syntax to access property names and values inside of an ng-repeat -->
+        <ul>
+            <li ng-repeat="(dwarfName, dwarfDescription) in dCtrl.dwarvesObj">
+                {{dwarfName}}: {{dwarfDescription}}
+            </li>
+        </ul>
+
+        <!-- track by $index fixes the issue of getting an error if the array contains duplicates -->
+        <ul>
+            <li ng-repeat="dwarf in dCtrl.dwarfClones track by $index">
+                {{dwarf}}
+            </li>
+        </ul>
+
+        <!-- nested ng-repeat -->
+        <ul>
+            <li ng-repeat="dwarf in dCtrl.arrObjDwarves">
+                <h1 ng-click="dCtrl.printDwarf(dwarf.name)">{{dwarf.name}}</h1>
+                <ul>
+                    <li ng-repeat="hobby in dwarf.hobbies">
+                        {{hobby}}
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>

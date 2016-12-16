@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="BigHead">
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="./main.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body class="container" ng-controller="LittleHeadController as lCtrl">
+        <ul class="nav nav-pills">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+
+        <div class="jumbotron">
+            {{lCtrl.greeting}}
+        </div>
+
+        <form ng-submit="lCtrl.saveData()">
+            <div class="form-group fixedwidth">
+                <input type="text" placeholder="First name" ng-model="lCtrl.firstName"
+                required oninvalid="this.setCustomValidity('Don't leave this blank, bitch!')"
+                class="form-control form-group">
+                <input type="text" placeholder="Last name" ng-model="lCtrl.lastName"
+                required oninvalid="this.setCustomValidity('Don't leave this blank, bitch!')"
+                class="form-control form-group">
+                <input type="text" placeholder="Email" ng-model="lCtrl.email"
+                required oninvalid="this.setCustomValidity('Don't leave this blank, bitch!')"
+                class="form-control group">
+            </div>
+            <button class="btn btn-success btn-block" type="submit">Submit</button>
+        </form>
+
+        <br>
+        <ul class="well center">
+            <div class="row">
+                <div class="col-xs-12">List of users:</div>
+                <li class="center col-xs-6" ng-repeat="user in lCtrl.users">
+                    {{user.firstName}} {{user.lastName}} <{{user.email}}>
+                </li>  
+            </div>  
+        </ul>
+    </body>
+</html>

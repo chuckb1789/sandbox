@@ -1,0 +1,11 @@
+Responsive Web Design
+
+Mobile first design - start small and build up, not vica versa
+
+CSS Units
+px - pixel
+% - percent, typically of enclosing element
+em - height of a capital M letter
+vh - view height
+vw - view width
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="HeroesOfAjax">
+    <head>
+        <title>Heroes of AJAX!</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.js"></script>
+        <script src="/js/controller.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body class="container" ng-controller="HeroesController as hCtrl" ng-init="hCtrl.getHeroes()">
+        
+        <div class="jumbotron centered header">
+            <h2><b>{{hCtrl.greeting}}</b></h2>
+        </div>
+
+        <form class="centered" ng-submit="hCtrl.createHero()">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Name" ng-model="hCtrl.newHero.name">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Enter powers separated by a comma..." ng-model="hCtrl.newHero.powers">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Enter weaknesses separated by a comma..." ng-model="hCtrl.newHero.weaknesses">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Team" ng-model="hCtrl.newHero.team">
+            </div>
+            <div class="form-group">
+                <input type="checkbox" name="fancy-checkbox-default" id="fancy-checkbox-default" autocomplete="off" ng-model="hCtrl.newHero.externalUnderwear"/>
+                <div class="btn-group">
+                    <label for="fancy-checkbox-default" class="btn btn-default">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        <span> </span>
+                    </label>
+                    <label for="fancy-checkbox-default" class="btn btn-default active">
+                        External Underwear
+                    </label>
+                </div>
+            </div>  
+            <div class="form-group">  
+                <button class="btn btn-success form-control" type="submit">Add Hero!</button>
+            </div>
+        </form>
+
+        <ul class="heroCard">
+            <li class="jumbotron heroList" ng-repeat="hero in hCtrl.heroList">
+                <button ng-click="hCtrl.deleteHero(hero._id, $index)" class="btn btn-danger deleteButton"><span class="glyphicon glyphicon-remove"></button>
+                <h3 class="heroName"><b><i>{{hero.name}}</i></b></h3>
+                <div><b>Powers:</b>
+                    <ul class="powers well well-sm"> 
+                        <li ng-repeat="power in hero.powers">
+                            <img src="https://openclipart.org/download/214028/Thumbs-Up-Circle.svg" style="width:16px; height:16px">{{power}}
+                        </li>
+                    </ul>
+                </div>
+                <div><b>Weaknesses:</b>
+                    <ul class="weaknesses well well-sm"> 
+                        <li ng-repeat="weakness in hero.weaknesses">
+                            <img src="https://openclipart.org/download/214030/Thumbs-Down-Circle.svg" style="width:16px; height:16px">{{weakness}}
+                        </li>
+                    </ul>
+                </div>
+                <div><b>Team:</b> {{hero.team}}</div>
+                <div><b>External Underwear:</b>
+                    <span ng-if="hero.externalUnderwear">Yes</span>
+                    <span ng-if="!hero.externalUnderwear">No</span>
+                </div>
+                <div><b>Created:</b> {{hero.created | date:'medium'}}</div>
+            </li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+div {
+    background-color: darkseagreen;
+    margin: 0 auto; /* 0 pixels of top/bottom margin and automatically determine an equal amount of margin on the left and right - this will center the actual div, but not the content in the div */
+    max-width: 400px; /* the div can be smaller than 400px depending on window size, but it cannot grow bigger than 400px */
+    height:200px;
+    text-align: center; /* this will center the actual text in the container - text styles are always inherited to child elements, unless overridden (so our child p tag will get the text align center property */
+    position: relative;
+}
+
+p {
+    margin: 0px;
+    background-color: peachpuff;
+    position: absolute;
+    /* vertical-align: middle will only work properly if you are trying to center a single line of text, so it is usually preferable to use the transform method below */
+    /*vertical-align: middle;*/
+    /*line-height: 200px;*/
+    
+    /* move the p tag 50% of the parent's height from the top and 50% of the parent's width from the left */
+    top: 50%;
+    left: 50%;
+
+    /* this however will put the top left corner of the content at the right spot, but we will want to offset by 50% of the content's width and height to make it actually centered */
+    transform: translate(-50%, -50%);
+}

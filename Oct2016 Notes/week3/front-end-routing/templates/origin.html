@@ -1,0 +1,17 @@
+<!--this is our code snippet/template for the origin route-->
+<h3>
+    All of our drinks comes from small estate farms.
+    Our water comes from home-dripped tears from our children workers.
+</h3>
+
+<h3>
+Origins:
+</h3>
+
+<!-- I changed this from the <ul> to a <section> just to show that ng-repeat can be used on different kinds of html elements-->
+<section ng-repeat="origin in oCtrl.origins">
+{{ origin }}
+</section>
+
+<!--here we are using the parameter from our parameterized path-->
+You chose drink #{{oCtrl.id}} which is from {{ oCtrl.origins[oCtrl.id] }} 

@@ -1,0 +1,13 @@
+body {
+	font: italic 2em Courier, monospace;
+}
+h1 {
+	border: medium solid red;
+}
+.cool-para {
+	font:  2em "Helvetica Neue" ;
+}
+
+#fred {
+	color: blue;
+}

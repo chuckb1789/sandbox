@@ -1,0 +1,94 @@
+REST - REpresentational State Transfer
+
+a software architectural style for creating APIs. 
+an API is an Application Programming Interface (emphasis on interface). It is simply a contract that defines how two pieces of software interact. 
+
+REST is NOT a specific tool/technology/library (like express or angular) and it's also not a specific protocol (like HTTP). 
+
+the most basic concept in REST is a RESOURCE. A RESTFUL API exposes RESOURCES to CLIENTS.
+resources can be concrete (image, document) or more abstract (today's weather in LA). Either way, RESOURCES are always nouns.
+
+// this resource specifies a single user by ID
+/api/v2/users/123 - a singleton resource
+
+// this resource specifies the users collection, but not a specific user within that collection
+/api/v2/users - a collection resource
+
+REST APIs almost always return JSON. 
+
+REST APIs are STATELESS - servers do not keep track of clients in between requests. clients must send all necesarry information on each request. 
+
+
+The most important aspect of REST is how we use the different HTTP verbs to convey meaning. 
+
+GET, PUT, DELETE, POST
+
+GET - SAFE: // safe is more specific than idempotent
+sending this request any number of times has no effect on the server state.
+typically used for retrieving information
+
+app.get('/api/v2/users/123') // get user with _id 123
+app.get('/api/v2/users') // get the whole users collection
+
+DELETE - IDEMPOTENT:
+sending this request one time has the same effect as sending this request many times. 
+typically used for deleting resources
+
+app.delete('/api/v2/users/123') // delete user with _id 123
+
+
+PUT - IDEMPOTENT
+typically used for updating resources, sometimes used for creating resources. 
+app.put('/api/v2/users/123') {name:"Steve"}
+
+POST - neither safe nor idempotent. sending 2 post requests should have twice as much of an effect as sending 1 post request.
+typically used for creating new data
+// we're not specifying a user ID in this request, so the server should make one. therefore, if we send this request ten times, a new user will be created for each request. 
+app.post('/api/v2/users') {name: "Alice", job: "dog walker"}
+
+
+app.put('/api/v2/users/123'){name:"Bob", job:"baby sitter"} // this request is idempotent because we specified the ID
+
+app.post('/api/v2/bank-accounts'/123) {action:withdrawal, amount: 1000} // this request would have the same effect every time we send it, so it is not idempotent. we should use POST.
+If needed, a body can be attached to further specify what action should occur 
+
+RESTful URLs should contain NOUNS, not VERBS. 
+app.post('/api/v2/users/create-new-user') // URLs should not specify verbs
+
+1xx - informational
+2xx - success
+    200 - generic success
+    201 - created
+    204 - no content
+
+3xx - redirects
+    304 - not modified
+
+4xx - client error
+    404 - not found
+
+5xx - server error
+    500 - generic server error
+
+
+CRUD - Create, Read, Update, Delete
+a 'basic crud app' is something like a todo-list. it lets users create, read, update, and delete data.
+
+// REST is NOT CRUD. comparisons like this are fundamentally misleading
+Create : ???
+Read : GET
+Update : ???
+Delete : DELETE
+
+
+dropbox used to have a route: app.get(/delta)
+requests to this route needed too many parameters. all the information coudn't fit in a query string.
+
+app.report('/delta')
+REST purists wanted the api to use REPORT requests to /delta
+the REPORT method is defined as SAFE, like GET, but it also has a body, like POST. 
+
+//dropbox decided to use POST
+app.post('/delta')
+// this request is safe
+

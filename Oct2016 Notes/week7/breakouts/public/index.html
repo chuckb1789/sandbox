@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="Breakouts">
+    <head>  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="/controller.js"></script>
+    </head>
+    <body ng-controller="BreakoutController as bCtrl" style="font-size: {{bCtrl.readCookie('textSize')}}px; background-color: {{bCtrl.readCookie('bgColor')}}">
+        {{bCtrl.greeting}}
+
+        <form ng-submit="bCtrl.saveSettings()">
+            <select ng-model="bCtrl.settings.textSize">
+                <option value="" selected disabled>Choose a text size...</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+            </select>
+
+            <select ng-model="bCtrl.settings.bgColor">
+                <option value="" selected disabled>Choose a background color...</option>
+                <option value="peachpuff">Peachpuff</option>
+                <option value="darkseagreen">Dark Sea Green</option>
+                <option value="rebeccapurple">Rebecca Purple</option>
+                <option value="lightgoldenrodyellow">Light Goldenrod Yellow</option>
+            </select>
+            <input type="submit">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+Express is a JS framework (node module)
+    -It helps us write a web server in a lot less code than would be required with a vanilla node server
+    -It is similar to Angular on the front end - everything Angular does can be done with vanilla JS, but it would take a ton of code
+
+Client/Server
+    -Client: requests resources from a server (examples: browser/users, internet of things devices)
+    -Server: accepts connections from clients and sends them requested resources (example: a machine rented from DigitalOcean in which we install our full stack app on)
+        -Servers don't really do anything until they receive requests from clients
+        -On the HTTP protocol, servers do not proactively send messages to clients, they simply respond to requests (one HTTP request = one HTTP response)
+        -Servers MUST SEND A RESPONSE for every request, even if the response doesn't contain any data (the client will sit and wait for the response)
+
+    Client/Server communication metaphor: 
+        Think of the server as a restaurant. The clients are the customers. The wait staff is like the browser. The kitchen is the server. The food is the response to requests.
+
+What actually happens when we send an HTTP request?
+    1.) The user makes a request to www.google.com
+    2.) The browser sends a request to the DNS (Domain Name System), which finds the IP address of the server requested (resolving a subdomain may contain multiple DNS requests)
+    3.) The browser sends the request to the IP address
+    4.) The server receives the request and processes it
+    5.) The server sends the response back to the client
+    This is the case for ALL files (html, js, css)
+
+What information is contained in an HTTP request?
+Bare minimum:
+    -Method type: GET/POST/PUT/DELETE (and some others that are infrequently used)
+    -URL: what resource is being requested? (home page '/', about page '/about', etc)
+Optional:
+    -Headers: contain more information about the request
+    -Body: for some request types (POST/PUT have a body, GET does not - it passes data through the query string), allows you to attach more data to the request (for example, sending a user's email and password to the server, so the user can login)
+
+Plain text is really the only thing we can send over the internet (using HTTP)

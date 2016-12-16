@@ -1,0 +1,17 @@
+<h1>{{hCtrl.greeting}}</h1>
+
+<div>
+    <input ng-model="hCtrl.Player.name" placeholder="Player Name">
+    <button class="btn btn-success" ng-click="hCtrl.ageGate()"> Click here to journey into the dungeon </button>
+
+    <ul>
+        
+        <li ng-repeat="(thingIndex, thing) in hCtrl.things | limitTo : hCtrl.pageSize : hCtrl.pageIndex()">{{thing}} - {{thingIndex}}</li>
+    </ul>
+
+    <ul>
+        <li ng-repeat="page in hCtrl.makePages()" ng-click="hCtrl.setPage($index + 1)">{{$index + 1}}</li>
+       
+    </ul>
+
+</div> 

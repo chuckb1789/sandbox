@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="SchoolApp">  
+    <head>
+         <title>School App!</title>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+         
+         <!--Bring in our script that defines our angular module - that is all this file does-->
+         <script src="app.js"></script> 
+         
+         <!-- Bring in our factory script - don't forget to do this like I did! We got that unknown provider error because I was injecting a factory that Angular didn't know about. -->
+         <script src="schoolFactory.js"></script> 
+         
+         <!-- Bring in our two controller files -->
+         <script src="teacherController.js"></script>
+         <script src="studentController.js"></script>
+    </head>
+    <body>
+        <!-- Define the section of our page that is controlled by the Student Controller -->
+        <section ng-controller="StudentController as sCtrl">
+            {{sCtrl.greeting}} from the students of {{sCtrl.school.name}} at {{sCtrl.school.address}}
+
+            <!-- Create some input boxes that we use to filter our data -->
+            <input type="text" placeholder="Search names" ng-model="sCtrl.name">
+            <input type="text" placeholder="Search courses" ng-model="sCtrl.courses">
+
+            <!-- Create a dropdown that will be used to filter the students by GPA-->
+            <select ng-model="sCtrl.grade">
+                <option value="all">All</option>
+                <option value="pass">Pass</option>
+                <option value="fail">Fail</option>
+            </select>
+
+            <!-- Loop through and display all of the student profiles-->
+            <ul>
+                <!-- The pipe character '|' is used to denote an angular filter. -->
+                <!-- Angular filters are just used to format the way values are displayed, they do not actually change the value of the underlying data -->
+                <!-- Built-in filter list: https://docs.angularjs.org/api/ng/filter -->
+                <!-- We are using an orderBy filter to display the students in alphabetical order of their name -->
+                <!-- We are chaining multiple filters here to also filter based on the searched name and grade properties-->
+                <li ng-repeat="student in sCtrl.studentProfiles | orderBy:'name' | filter:sCtrl.name | filter:sCtrl.gradeFilter">
+                    <!-- Use the date filter to make the date look nicer -->
+                    {{student.name}} started on {{student.startDate | date:"MM/dd/yyyy"}} and has a GPA of {{student.gpa}} 
+                    <ul>
+                        <!-- Filter based on the searched course names -->
+                        <li ng-repeat="course in student.courses | filter:sCtrl.courses">
+                            {{course}}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Define the section of our page that is controlled by the Teacher Controller -->
+        <section ng-controller="TeacherController as tCtrl">
+            {{tCtrl.greeting}} from the students of {{tCtrl.school.name}} at {{tCtrl.school.address}}
+
+            <!-- Loop through and display all of the teacher profiles -->
+            <ul>
+
+                <li ng-repeat="teacher in tCtrl.teacherProfiles">
+                    <!-- Make the salary look nicer with the currency filter-->
+                    {{teacher.name}} is paid {{teacher.salary | currency}} and advises: 
+
+                    <ul>
+                        <li ng-repeat="student in tCtrl.getAdvisees(teacher)">
+                            {{student.name}} has a GPA of {{student.gpa}}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,101 @@
+Node is a JavaScript runtime environment, built on the V8 Engine, transplanted into a command line application.
+
+Node is different from running javascript in Chrome dev tools in these ways:
+- No window object
+- No DOM
+- has modules
+- has file system access
+- has networking access
+- has hardware access
+- can be used to build servers
+
+(REPL) Read, Eval, Print, Loop
+The REPL acts like an interactive shell for node
+
+So given a file, main.js:
+
+    // main.js
+    console.log('Hello squirrels!');
+
+
+You can run it on the command line with node:
+
+    $ node main.js
+
+
+Arguments are passed into an application using process.argv[]
+
+
+Some modules are built into Node, but we don't get access to them by default.  
+So we don't need to install them (ie. npm install fs), but we do still need to require them (ie. var FileSystem = require('fs))
+For example:
+  - fs   (file system related)
+  - http (http related)
+  - os   (operating system related objects/functions)
+  - path (file system path-related)
+
+Many other modules are available and can be installed and then used just like the built-in modules.  
+These modules are installed with npm (ie. npm install colors --save) and an then be requires.
+These are just a few that we will be using.
+  - colors
+  - express
+  - mongoose
+  - request
+  - socket.io
+  - etc.
+
+
+Node Package Manager (npm)
+The node package manager installs node modules for local or global use.
+
+Step 1: initialize npm
+
+    $ npm init
+
+package.json is created and is a file containing information about all locally installed node modules.
+- semantic versioning (major.minor.patch)
+
+modules are node packages that npm can install and install locally for you.
+
+Step 2: install a local module
+
+    $ npm install colors --save
+
+
+  The node_modules directory is created and populated with all of the modules that you have installed. 
+  Look at the package.json again and note the addition of the dependencies section and the new dependency on colors
+
+Step 3: add a .git_ignore
+
+  We don't want to check all of these files into our repository when we commit, 
+  so we can create a .gitignore file to tell git to ignore this directory.
+
+    $ echo node_modules >> .gitignore
+
+
+The last flavor of modules that we might require are those that we write ourselves.
+These modules are files that we have written and include the module.exports statement 
+(see require-me.js in this demo code) and then our require statement needs to include
+the file path to the file itself (ie. var RequiredStuff = require('./require-me.js'))
+(see main.js in this demo code)
+
+
+Global node modules are installed to be used as commands on the command line.  
+We don't use them in javascript, so they aren't associated with the require statement. 
+These are installed globally in /usr/local/bin instead of locally in node_modules. 
+These are just a few that we will be using.
+  - nodemon
+  - forever
+  - gulp
+  - bower
+  - commander
+
+nodemon is a command which runs node and will restart node anytime a change is made in the javascript source file(s).
+
+    $ npm i nodemon -g   # i is shorthand for install
+
+
+Take a look at: 
+  https://nodejs.org/dist/latest-v7.x/docs/api/
+  http://npmjs.com
+
