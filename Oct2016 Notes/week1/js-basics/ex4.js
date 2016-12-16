@@ -34,3 +34,20 @@ for(var ix = 0; ix < 10; ix++){
 for(var ix = 0; ix < ary.length ; ix++){
   console.log("ary["+ix+"]: ", ary[ix]);
 }
+
+for(var i = 1; i < 10; i++) {
+  console.log("Learning loops", i);
+}
+
+var Charlie = ['Bronco','Elantra','Impreza Outback Sport','Escape','FJCruiser','Tacoma'];
+for(var i = 4; i >= 0; i--){
+  console.log ("I have owned an", Charlie[i]);
+}
+
+for(var i=5; i>=5; i--) {
+  console.log ("I want to buy a", Charlie[i]);
+}
+
+for(var i = 0; i < 1 ; i++) {
+  console.log ("I wish I had my", Charlie[i], "back.");
+}

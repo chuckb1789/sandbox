@@ -21,3 +21,4 @@ var movie = {
   title: "Thor",
   owner: "Marvel"
 }
+ console.log("I love the movie", movie.title, 'made by', movie.owner);

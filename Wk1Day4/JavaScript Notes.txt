@@ -227,7 +227,7 @@ JS - FUNCTIONS:
 EC5 Syntax
 
     //Function declaring
-    //this function can be called/invoked anywhere in the file since its declared at complie time.
+    //this function can be called/invoked anywhere in the file since its declared at compile time.
     function calculateArea (length, height) { //inputs are called parameters
       var area = length * height;
       return area;                            //return will give a value back after invoking the function.
@@ -269,3 +269,18 @@ A function with an object:
   }
 
 function returns: person.eat ('steak') =  Munch, munch, munch on steak
+
+
+Functional Scope:
+  Ex.
+  var globalVar = 'global';
+
+    function myFuntion () {
+
+    var localVar = 'local to my function'; <-THIS VARIABLE IS "DECLARED" BY USING 'VAR'
+    leakingVar = 'this variable will 'leak' into the global scope and be available outside <-THIS VARIBLE IS 'DEFINED' BUT NEVER EXPLICITLY 'DECLARED' the function'
+    console.log(globalVar)
+    }
+
+    console.log(localVar);  //undefined
+    console.log(leakingVar); //'this variable will "leak" into the global scope and be available outside the function'
